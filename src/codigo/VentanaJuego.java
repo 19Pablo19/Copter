@@ -7,10 +7,12 @@ package codigo;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -20,6 +22,8 @@ import javax.swing.Timer;
  */
 public class VentanaJuego extends javax.swing.JFrame {
         
+    Image background; 
+        boolean comienzo = false;
         boolean gameOver = false;
         Helicoptero miHelicoptero = new Helicoptero(50);
         
@@ -84,6 +88,17 @@ public class VentanaJuego extends javax.swing.JFrame {
     
     }
     
+    
+    private void precargaimagenes(){
+        
+        background = (new ImageIcon(new ImageIcon(
+                getClass().getResource("/imagenes/images.jpeg"))
+                .getImage().getScaledInstance(ANCHOPANTALLA,ALTOPANTALLA, Image.SCALE_DEFAULT)))
+                .getImage();
+        
+       
+    }
+    
     private void bucleDelJuego(){
         if (miHelicoptero.chequeaColision(miColumna1)){temporizador.stop(); gameOver();}
         if (miHelicoptero.chequeaColision(miColumna2)){temporizador.stop(); gameOver();}
@@ -120,6 +135,11 @@ public class VentanaJuego extends javax.swing.JFrame {
         miObstaculo2.mueve(bufferGraphics);
         
         lienzoGraphics.drawImage(buffer, 0,0, null);
+    }
+    
+    private void bucleJuego2(){
+       //CREAR OTRO PANEL PARA QUE SEA EL MENU PRINCIPAL Y HACER QUE EL JUEGO NO COMIENCE Y SE MUESTRE VISIBLE 
+       //EL PANEL SELECCIONADO Y CUANDO COMIENCE EL PANEL 'SUPERPUESTO' SE OCULTE
     }
     
     /**
@@ -192,6 +212,11 @@ public class VentanaJuego extends javax.swing.JFrame {
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
              
         if (evt.getKeyCode() == KeyEvent.VK_SPACE){
+                  
+           miHelicoptero.yVelocidad += 10;
+        
+        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
                   
            miHelicoptero.yVelocidad += 10;
         

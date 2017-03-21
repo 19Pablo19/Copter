@@ -32,9 +32,6 @@ public class Helicoptero extends Ellipse2D.Double{
         radio = _radio;
         precargaImagenes();
 }
-    public void recolocar(){
-       
-    }
         
     public void mueve(Graphics2D g2){
         this.y = this.y - yVelocidad;
@@ -64,7 +61,7 @@ public class Helicoptero extends Ellipse2D.Double{
       private void precargaImagenes(){
         helicopterox = (new ImageIcon(new ImageIcon(
                 getClass().getResource("/imagenes/Transport-Helicopter-icon.png"))
-                .getImage().getScaledInstance(radio,radio,Image.SCALE_DEFAULT)))
+                .getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT)))
                 .getImage();
          
                 

@@ -11,6 +11,7 @@ import java.awt.Image;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Columna {
     int altura_columna = 200;
     int ancho_columna = 80;
     private int ancho_pantalla;
-    Image col_abajo, col_arriba, col_medio;
+    Image muroArriba, muroAbajo;
     Rectangle2D columnaChoque;
 Random aleatorio = new Random();    
     
@@ -38,6 +39,7 @@ Random aleatorio = new Random();
                                       altura_columna );
         
         ancho_pantalla = _anchoPantalla;
+        precargaImagenes();
         
     }
   
@@ -51,15 +53,28 @@ Random aleatorio = new Random();
         
         //g2.fill(base);
         
-        g2.drawImage(col_abajo, (int)base.getX(), (int)base.getY(), null);
-        g2.drawImage(col_arriba, (int)capitel.getX(), (int)capitel.getY(), null);
-        g2.setColor(Color.GREEN);
-        g2.fill(base);
-        g2.fill(capitel);
-        
-        
-        
+        g2.drawImage(muroArriba, (int)capitel.getX(), (int)capitel.getY(), null);
+        g2.drawImage(muroAbajo, (int)base.getX(), (int)base.getY(), null);
+
+
     }
+    
+    
+     private void precargaImagenes(){
+        muroArriba = (new ImageIcon(new ImageIcon(
+                getClass().getResource("/imagenes/wall.jpg"))
+                .getImage().getScaledInstance(80,200,Image.SCALE_DEFAULT)))
+                .getImage();
+        
+        muroAbajo = (new ImageIcon(new ImageIcon(
+                getClass().getResource("/imagenes/wall.jpg"))
+                .getImage().getScaledInstance(80,200,Image.SCALE_DEFAULT)))
+                .getImage();
+         
+                
+    }
+    
+    
     private void mueveColumna(){
         if (capitel.getX() + ancho_columna < 0){
             int desplazamiento = aleatorio.nextInt(50);

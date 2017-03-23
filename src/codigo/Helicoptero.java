@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -61,7 +61,7 @@ public class Helicoptero extends Ellipse2D.Double{
       private void precargaImagenes(){
         helicopterox = (new ImageIcon(new ImageIcon(
                 getClass().getResource("/imagenes/Transport-Helicopter-icon.png"))
-                .getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT)))
+                .getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT)))
                 .getImage();
          
                 

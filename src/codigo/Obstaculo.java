@@ -56,10 +56,9 @@ Random aleatorio = new Random();
     
      private void precargaImagenes(){
         kong = (new ImageIcon(new ImageIcon(
-                getClass().getResource("/imagenes/gorilla.jpg"))
+                getClass().getResource("/imagenes/kingkong.png"))
                 .getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT)))
-                .getImage();
-         
+                .getImage();         
                 
     }
     
